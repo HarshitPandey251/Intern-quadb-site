@@ -1,38 +1,456 @@
-.App {
-  text-align: center;
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.dark-theme {
+    position: relative;
+    background: #191D28 !important;
+    color: #fff !important;
+    font-family: 'Oswald', sans-serif !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.light-theme {
+    position: relative;
+    background: #fff;
+    color: #0C0F48;
+    font-family: Oswald, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.text-color {
+    color: #5DC7C2 !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.red-color {
+    color: #da5757 !important;
 }
 
-.App-link {
-  color: #61dafb;
+a:hover {
+    text-decoration: none !important;
+    color: #fff !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pointer {
+    cursor: pointer;
+}
+
+.header-div {
+    display: flex;
+    padding: 25px 30px 0;
+}
+
+/* Left Header */
+
+.header-logo-div {
+    padding: 0px;
+}
+
+.header-logo-div img {
+    padding: 5px;
+    width: 60%;
+}
+
+.header-logo-div p {
+    color: gray;
+    font-size: 18px;
+    margin-top: -12px;
+    opacity: 0.8;
+    padding-left: 8px;
+}
+
+.header-logo-div p a {
+    color: #3DC6C1;
+}
+
+/* Middle Header */
+
+.header-currency-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.light-theme .header-btn {
+    background-color: #F8F9FA !important;
+    color: #0C0F48 !important;
+    box-shadow: 0 0 2px #ddd !important;
+}
+
+.header-btn {
+    background: #2E3241 !important;
+    color: #fff !important;
+    border: 0 !important;
+    padding: 5px 20px !important;
+    margin: 12px !important;
+    border-radius: 10px !important;
+    text-transform: uppercase !important;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show>.btn-secondary.dropdown-toggle {
+    background-color: #545b62 !important;
+    border-color: #4e555b !important;
+}
+
+.dropdown-item:hover {
+    color: #16181b !important;
+    background-color: #fff !important;
+}
+
+/* Right Header */
+
+.right-header-div {
+    display: inline-flex;
+    align-items: center;
+}
+
+
+.telegram-btn {
+    padding: 1px 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background: #3DC6C1;
+    color: #fff;
+}
+
+.telegram-btn .fa {
+    font-size: 23px;
+    margin-right: 10px;
+}
+
+.switch-div {
+    margin: 11px;
+    display: inline-block;
+}
+
+.switch-div input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-div {
+    position: relative;
+    width: 72px;
+    height: 34px;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transition: all .3s;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    transition: all .4s;
+    border-radius: 100%;
+    background: #3DC6C1;
+    height: 26px;
+    width: 26px;
+    top: 4px;
+    left: 4px;
+}
+
+.dark-theme input:checked+.slider::before {
+    transform: translateX(37px);
+}
+
+.light-theme .slider {
+    box-shadow: 0 0 2px #ddd;
+}
+
+.dark-theme input:checked+.slider {
+    background-color: #2E3241;
+}
+
+
+/* Content Area */
+.content-area {
+    padding-bottom: 50px;
+}
+
+.first-section-container {
+    padding: 0 30px;
+}
+
+.first-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.first-section-heading {
+    font-size: 40px;
+}
+
+.first-section-subheading,
+.first-section-subText {
+    color: #0C0F48;
+    font-size: 20px;
+    opacity: .45;
+}
+
+.dark-theme .first-section-subheading,
+.dark-theme .first-section-subText {
+    color: #fff;
+}
+
+.first-section-middle {
+    padding-bottom: 30px;
+    max-width: 40%;
+}
+
+.first-section-middle .first-section-heading {
+    font-size: 80px;
+    padding-bottom: 10px;
+}
+
+.first-section-subText:nth-child(1) {
+    font-size: 28px;
+    font-weight: 200 !important;
+}
+
+.first-section-subText {
+    font-size: 16px;
+    letter-spacing: .75px;
+}
+
+.first-section-container img {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+/* Table Section */
+
+.crypto-table {
+    padding-left: 24px;
+    padding-right: 24px;
+    overflow-x: auto;
+    width: 100%;
+}
+
+.crypto-table table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    margin: 0;
+}
+
+.dark-theme .table,
+.dark-theme .crypto-table td h4 {
+    color: #fff;
+}
+
+.light-theme .table {
+    color: #0C0F48;
+}
+
+.light-theme .crypto-table td h4 span {
+    color: #000;
+}
+
+.crypto-table th {
+    padding: 0 12px !important;
+}
+
+.crypto-table th h4 {
+    text-align: center;
+    font-size: 24px;
+    opacity: .45;
+    margin-bottom: -5px;
+    letter-spacing: 1px;
+}
+
+.light-theme .crypto-table th h4,
+.light-theme .crypto-table tbody td h4 {
+    font-size: 16px;
+}
+
+.dark-theme .crypto-table tbody tr {
+    background: #2E3241;
+}
+
+.table-borderless td:first-child {
+    border-radius: 10px 0 0 10px !important;
+}
+
+.table-borderless td:last-child {
+    border-radius: 0 10px 10px 0 !important;
+}
+
+.crypto-table tbody td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.crypto-table tbody td h4 {
+    margin: 0;
+}
+
+.table-content img {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+}
+
+.table-content span {
+    padding-left: 10px;
+}
+
+/* Bottom Banner */
+
+.bottom-banner-div {
+    padding: 20px;
+    vertical-align: middle;
+}
+
+.bottom-banner-div img {
+    width: 100%;
+}
+
+/* Footer Section */
+
+.light-theme .footer-div {
+    border-top: 2px solid #ddd;
+}
+
+.footer-div {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-top: 2px solid #2e3242;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-text {
+    color: #888686;
+    padding-right: 12px;
+    font-size: 12px;
+}
+
+.footer-text:last-of-type {
+    margin-left: auto;
+}
+
+.footer-text:last-of-type a,
+.footer-text:last-of-type a:hover {
+    color: #888686 !important;
+}
+
+.footer-text a,
+.footer-text a:hover {
+    color: #3DC6C1 !important;
+}
+
+.add-to-home-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    height: 50px;
+    border-top: 2px solid #191D28;
+    background: #191D28;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
+
+/* Responsive Css */
+
+@media(max-width: 768px) {
+    .header-logo-div img {
+        width: 75%;
+    }
+
+    .first-section-heading {
+        font-size: 15px;
+    }
+
+    .first-section-middle .first-section-heading {
+        font-size: 20px;
+    }
+
+    .first-section-subheading {
+        font-size: 10px;
+    }
+
+    .first-section-subText:nth-child(1) {
+        font-size: 14px;
+    }
+
+    .first-section-subText {
+        font-size: 8px;
+    }
+
+    .crypto-table {
+        padding: 0 10px !important;
+    }
+
+    .crypto-table th h4 {
+        white-space: nowrap;
+        font-size: 14px !important;
+    }
+
+    .crypto-table tbody td {
+        padding: 6px 3px !important;
+    }
+
+    .crypto-table tbody td h4 {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+    .table-content img {
+        height: 10px;
+        width: 10px;
+    }
+
+    .table-content span {
+        padding-left: 4px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-logo-div {
+        text-align: center;
+    }
+
+    .header-btn {
+        padding: 5px 10px !important;
+        margin: 6px !important;
+    }
+
+    .telegram-btn {
+        padding: 5px 10px;
+    }
+
+    .telegram-btn .fa {
+        font-size: 18px;
+    }
+
+    .switch-div {
+        width: 60px;
+    }
+
+    .dark-theme input:checked+.slider::before {
+        transform: translateX(24px);
+    }
+
+    .first-section {
+        padding: 10px 0;
+    }
+
+    .first-section-subText {
+        font-size: 12px;
+    }
 }
